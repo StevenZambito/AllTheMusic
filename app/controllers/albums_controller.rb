@@ -22,6 +22,21 @@ class AlbumsController < ApplicationController
       end
     end
 
+    def edit
+    end
+
+    def update
+      if @album.update(album_params)
+        redirect_to album_path(@album)
+      else
+        render 'edit'
+      end
+
+    end
+
+    def destroy
+    end
+
     private
 
     def album_params
