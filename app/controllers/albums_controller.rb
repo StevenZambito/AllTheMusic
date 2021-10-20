@@ -1,5 +1,6 @@
 class AlbumsController < ApplicationController
     def index
+      @albums = Album.all.order("created_at DESC")
     end
 
     def new
@@ -19,6 +20,6 @@ class AlbumsController < ApplicationController
     private
 
     def album_params
-        params.require(:album).permit(:title, :description)
+        params.require(:album).permit(:title, :description, :artist)
     end
 end
