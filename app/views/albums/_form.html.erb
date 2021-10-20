@@ -1,0 +1,13 @@
+<%= form_for @album do |f| %>
+  <div class="mb-4">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="mb-4">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <%= f.submit class: "my-4 bg-red-700 hover:bg-red-500 text-yellow-100 font-bold py-2 px-4 border border-red-700 rounded" %>
+<% end %>
