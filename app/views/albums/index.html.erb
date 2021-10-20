@@ -1,7 +1,7 @@
 <h1 class="text-4xl">Index View</h1>
 <% @albums.each do |album| %>
   <div>
-    <h1><%= album.title %></h1>
+    <h1><%= link_to album.title, album_path(album) %></h1>
     <h1><%= album.artist %></h1>
   </div>
 <% end %>
