@@ -3,6 +3,7 @@
   <div>
     <h1><%= album.title %></h1>
     <h1><%= album.artist %></h1>
-    <p><%= album.description %></p>
   </div>
 <% end %>
+
+<%= link_to "Add Album", new_album_path %>
