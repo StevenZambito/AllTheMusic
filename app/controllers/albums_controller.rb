@@ -27,9 +27,11 @@ class AlbumsController < ApplicationController
     end
 
     def edit
+      @genres = Genre.all.map{ |g| [g.name, g.id]}
     end
 
     def update
+      @album.genre_id = params[:genre_id]
       if @album.update(album_params)
         redirect_to album_path(@album)
       else
