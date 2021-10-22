@@ -6,14 +6,14 @@ class AlbumsController < ApplicationController
     end
 
     def new
-      @album = Album.new
+      @album = current_user.albums.build
     end
 
     def show
     end
 
     def create
-      @album = Album.new(album_params)
+      @album = current_user.albums.build(album_params)
 
       if @album.save
         redirect_to root_path
