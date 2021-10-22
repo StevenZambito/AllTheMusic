@@ -9,7 +9,7 @@ class AlbumsController < ApplicationController
 
     def new
       @album = current_user.albums.build
-      @genres = Genre.all.map { |g| [g.name, g.id]}
+      @genres = Genre.all.map{ |g| [g.name, g.id]}
     end
 
     def show
@@ -17,6 +17,7 @@ class AlbumsController < ApplicationController
 
     def create
       @album = current_user.albums.build(album_params)
+      @album.genre_id = params[:genre_id]
 
       if @album.save
         redirect_to root_path
@@ -46,7 +47,7 @@ class AlbumsController < ApplicationController
     private
 
     def album_params
-      params.require(:album).permit(:title, :description, :artist)
+      params.require(:album).permit(:title, :description, :artist, :genre_id)
     end
 
     def find_album
