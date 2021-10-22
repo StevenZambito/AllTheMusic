@@ -1,5 +1,7 @@
 class AlbumsController < ApplicationController
     before_action :find_album, only: [:show, :edit, :update, :destroy]
+    include ActiveModel::AttributeAssignment
+    include ActiveModel::Validations
 
     def index
       @albums = Album.all.order("created_at DESC")
