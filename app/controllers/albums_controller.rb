@@ -9,6 +9,7 @@ class AlbumsController < ApplicationController
 
     def new
       @album = current_user.albums.build
+      @genres = Genre.all.map { |g| [g.name, g.id]}
     end
 
     def show

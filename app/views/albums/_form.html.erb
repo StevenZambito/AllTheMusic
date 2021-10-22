@@ -1,4 +1,6 @@
 <%= form_for @album do |f| %>
+
+  <%= select_tag(:genre_id, options_for_select(@genres), :prompt => "Select a Genre") %>
   <div class="mb-4">
     <%= f.label :title %>
     <%= f.text_field :title %>
