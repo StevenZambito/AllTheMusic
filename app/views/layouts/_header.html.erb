@@ -11,5 +11,10 @@
         <li><%= link_to "Sign In", new_user_session_path %></li>
       <% end %>
     </ul>
+    <ul>
+      <% if user_signed_in? %>
+        <li><%= link_to "Add Album", new_album_path %></li>
+      <% end %>
+    </ul>
   </div>
 </nav>
