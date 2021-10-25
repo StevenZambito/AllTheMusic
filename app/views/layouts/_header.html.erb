@@ -20,7 +20,7 @@
         <a href="#" role="button" data-toggle="dropdown" aria-expanded="false">Categories</a>
         <ul>
           <% Genre.all.each do |genre| %>
-            <li>
+            <li class="<%= 'font-bold' if params[:genre] == genre.name %> ">
               <%= link_to genre.name, albums_path(genre: genre.name), class: "link" %>
             </li>
           <% end %>
