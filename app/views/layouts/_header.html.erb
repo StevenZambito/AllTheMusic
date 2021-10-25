@@ -1,9 +1,10 @@
-<nav class="navbar">
-  <div class="flex">
+<nav class="navbar bg-red-500 flex justify-between">
+  <div class="bg-yellow-300 flex">
     <div>
       <%= link_to "All The Music", root_path%>
     </div>
-    <ul class="flex">
+
+    <ul class="flex bg-green-300">
       <li><%= link_to "Sign Up", new_user_registration_path%></li>
       <% if user_signed_in? %>
         <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
@@ -11,10 +12,24 @@
         <li><%= link_to "Sign In", new_user_session_path %></li>
       <% end %>
     </ul>
-    <ul>
-      <% if user_signed_in? %>
-        <li><%= link_to "Add Album", new_album_path %></li>
-      <% end %>
+  </div>
+
+  <div class="bg-pink-400 flex">
+    <ul class="flex">
+      <li>
+        <a href="#" role="button" data-toggle="dropdown" aria-expanded="false">Categories</a>
+        <ul>
+          <% Genre.all.each do |genre| %>
+            <li>
+              <%= link_to genre.name, albums_path(genre: genre.name), class: "link" %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+        <% if user_signed_in? %>
+          <li><%= link_to "Add Album", new_album_path %></li>
+        <% end %>
     </ul>
   </div>
 </nav>
+
