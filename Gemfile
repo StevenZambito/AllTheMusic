@@ -10,7 +10,6 @@ gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 gem 'devise', '~> 4.8'
-gem 'paperclip', '~> 6.1'
 # yanked v0.3.5
 gem 'mimemagic', github: 'mimemagicrb/mimemagic', ref: '01f92d86d15d85cfd0f20dabd025dcbd36a8a60f'
 # Use SCSS for stylesheets
