@@ -3,8 +3,8 @@
   <%= select_tag(:genre_id, options_for_select(@genres), :prompt => "Select a Genre") %>
 
   <div>
-    <%= form.label :album_cover %>
-    <%= form.file_field :album_cover %>
+    <%= f.label :album_cover %>
+    <%= f.file_field :album_cover %>
   </div>
 
   <div class="mb-4">

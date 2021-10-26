@@ -6,7 +6,7 @@
 
   <div>
     <% if @album.album_cover.attached? %>
-      <%= image_ta @album.album_cover %>
+      <%= image_tag @album.album_cover, class:"w-60" %>
     <% end %>
 
     <%= f.label :album_cover %>

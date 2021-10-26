@@ -6,7 +6,7 @@
     <% @albums.each do |album| %>
       <li>
         <% if album.album_cover.attached? %>
-          <%= link_to image_tag(album.album_cover.variant(resize_to_fill: [130, 150, gravity: 'north'])), album_path(album)%>
+          <%= link_to image_tag(album.album_cover, class:"w-60"), album_path(album)%>
           <% end %> 
         </li>
       <li><%= link_to album.title, album_path(album) %></li>
