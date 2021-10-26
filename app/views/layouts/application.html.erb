@@ -12,9 +12,11 @@
   </head>
 
 <%= render 'layouts/header'%>
-  <body class="bg-yellow-50">
+  <body class="bg-yellow-20">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <div class="mx-20">
+      <%= yield %>
+    </div>
   </body>
 </html>

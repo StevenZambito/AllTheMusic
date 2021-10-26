@@ -1,10 +1,16 @@
-<% if @album.album_cover.attached? %>
-  <%= image_tag @album.album_cover, class: "w-96" %>
-<% end %>
-<h2><%= @album.title %></h2>
-<h2><%= @album.artist %></h2>
-
-<h2>Genre: <%= @album.genre.name %></h2>
+<div class="flex justify-center bg-red-100">
+  <div>
+    <% if @album.album_cover.attached? %>
+      <%= image_tag @album.album_cover, class: "w-96 h-96" %>
+    <% end %>
+  </div>
+  
+  <div class="bg-green-300 justify-center">
+      <h2><%= @album.title %></h2>
+      <h2><%= @album.artist %></h2>
+      <h2><%= @album.genre.name %></h2>
+  </div>
+</div>
 
 <p><%= @album.description %></p>
 
@@ -16,3 +22,7 @@
     <%= link_to "Delete", album_path(@album), method: :delete, data: { confirm: "Are you sure?" } %>
   <% end %>
 <% end %>
+
+<div>
+  <h1>Reviews</h1>
+</div>

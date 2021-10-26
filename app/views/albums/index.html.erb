@@ -2,15 +2,18 @@
   <h1>There are currently no albums in this Genre</h1>
 <% else%>
   <h1><%= params[:genre] %></h1>
-  <ul>
+
+  <ul class="flex">
     <% @albums.each do |album| %>
-      <li>
-        <% if album.album_cover.attached? %>
-          <%= link_to image_tag(album.album_cover, class:"w-60"), album_path(album)%>
-          <% end %> 
-        </li>
-      <li><%= link_to album.title, album_path(album) %></li>
-      <li><%= album.artist %></li>
+      <div>
+        <li>
+          <% if album.album_cover.attached? %>
+            <%= link_to image_tag(album.album_cover, class:"w-60 h-60"), album_path(album)%>
+            <% end %> 
+          </li>
+        <li><%= link_to album.title, album_path(album) %></li>
+        <li><%= album.artist %></li>
+      </div>
     <% end %>
   </ul>
 <% end %>
