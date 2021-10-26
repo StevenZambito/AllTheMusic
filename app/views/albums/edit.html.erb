@@ -3,6 +3,16 @@
 <%= form_for @album, :html => { :multipart => true } do |f| %>
 
   <%= f.select :genre_id, @genres %>
+
+  <div>
+    <% if @album.album_cover.attached? %>
+      <%= image_ta @album.album_cover %>
+    <% end %>
+
+    <%= f.label :album_cover %>
+    <%= f.file_field :album_cover %>
+  </div>
+
   <div class="mb-4">
     <%= f.label :title %>
     <%= f.text_field :title %>

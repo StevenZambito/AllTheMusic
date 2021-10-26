@@ -1,6 +1,12 @@
 <h2><%= @album.title %></h2>
 <h2><%= @album.artist %></h2>
+
+<% if @album.album_cover.attached? %>
+  <%= image_tag @album.album_cover %>
+<% end %>
+
 <h2>Genre: <%= @album.genre.name %></h2>
+
 <p><%= @album.description %></p>
 
 <%= link_to "Back", root_path %>

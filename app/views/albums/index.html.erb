@@ -1,17 +1,17 @@
 <% if @albums.count == 0 %>
-
   <h1>There are currently no albums in this Genre</h1>
-
 <% else%>
-
   <h1><%= params[:genre] %></h1>
-
-  <% @albums.each do |album| %>
-    <div>
-      <h1><%= link_to album.title, album_path(album) %></h1>
-      <h1><%= album.artist %></h1>
-    </div>
-  <% end %>
-
+  <ul>
+    <% @albums.each do |album| %>
+      <li>
+        <% if album.album_cover.attached? %>
+          <%= link_to image_tag(album.album_cover.variant(resize_to_fill: [130, 150, gravity: 'north'])), album_path(album)%>
+          <% end %> 
+        </li>
+      <li><%= link_to album.title, album_path(album) %></li>
+      <li><%= album.artist %></li>
+    <% end %>
+  </ul>
 <% end %>
 
