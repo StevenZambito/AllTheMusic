@@ -26,4 +26,7 @@
 <div>
   <h1>Reviews</h1>
   <%= link_to "Add Review", new_album_review_path(@album) %>
+
+  <%= render @album.reviews %>
+
 </div>
