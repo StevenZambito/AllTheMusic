@@ -8,6 +8,8 @@
   <div class="bg-green-300 justify-center">
       <h2><%= @album.title %></h2>
       <h2><%= @album.artist %></h2>
+      <div class="average-review-rating flex" data-score="<%=@average_review %>"></div>
+      <span>Based on <%=@album.reviews.count %> reviews</span>
       <h2><%= @album.genre.name %></h2>
   </div>
 </div>
@@ -39,4 +41,14 @@
     },
     path: '/assets/'
   });
+</script>
+
+<script>
+	$('.average-review-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
+	});
 </script>
