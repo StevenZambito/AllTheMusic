@@ -1,8 +1,6 @@
 <%= form_for ([@album, @album.reviews.build]) do |f| %>
-
-  <div class="mb-4">
+  <div id="rating-form" class="mb-4 flex">
     <%= f.label :rating %>
-    <%= f.text_field :rating %>
   </div>
 
   <div class="mb-4">
@@ -12,3 +10,10 @@
 
   <%= f.submit class: "my-4 bg-red-700 hover:bg-red-500 text-yellow-100 font-bold py-2 px-4 border border-red-700 rounded" %>
 <% end %>
+
+<script>
+  $('#rating-form').raty({
+    path: '/assets/',
+    scoreName: 'review[rating]'
+  });
+</script>
