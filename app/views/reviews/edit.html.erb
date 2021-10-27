@@ -1,4 +1,6 @@
-<%= form_for ([@album, @review.reviews.build]) do |f| %>
+<h1 class="mb-4">Edit Review</h1>
+
+<%= form_for ([@album, @review]) do |f| %>
 
   <div class="mb-4">
     <%= f.label :rating %>
