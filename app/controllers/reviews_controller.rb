@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :find_album
+  before_action :find_review, only: [:edit, :update, :destroy]
   def new
     @review = Review.new
   end
@@ -17,12 +18,9 @@ class ReviewsController < ApplicationController
   end
 
   def edit
-    @review = Review.find(params[:id])
   end
 
   def update
-    @review = Review.find(params[:id])
-
     if @review.update(review_params)
       redirect_to album_path(@album)
     else
@@ -37,5 +35,9 @@ class ReviewsController < ApplicationController
 
   def find_album
     @album = Album.find(params[:album_id])
+  end
+
+  def find_review
+    @review = Review.find(params[:id])
   end
 end
