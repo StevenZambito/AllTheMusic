@@ -2,8 +2,13 @@ class ReviewsController < ApplicationController
   before_action :find_album
   before_action :find_review, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit]
+
   def new
-    @review = Review.new
+    if current_user.reviews.exists?
+      redirect_to album_path(@album), notice: "You've already written a review for this book!"
+    else
+      @review = Review.new
+    end
   end
 
   def create
