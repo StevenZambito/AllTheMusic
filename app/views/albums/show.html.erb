@@ -9,23 +9,29 @@
       <h2 class="font-bold text-5xl"><%= @album.title %></h2>
       <h2 class="text-center text-xl"><%= @album.artist %></h2>
       <div class="average-review-rating flex mt-5" data-score="<%=@average_review %>"></div>
-      <span class="text-center">(Based on <%=@album.reviews.count %> reviews)</span>
+      <span class="text-center italic text-sm">Based on <%=@album.reviews.count %> reviews</span>
       <h2><%= @album.genre.name %></h2>
   </div>
 </div>
 
-<p><%= @album.description %></p>
+<div class="ml-32 mr-32">
+  <p class="mt-5 mb-5"><%= @album.description %></p>
+</div>
 
-<%= link_to "Back", root_path %>
+<div class="flex justify-center">
+  <div>
+    <% if user_signed_in? %>
+      <% if @album.user_id == current_user.id %>
+        <%= link_to "Edit", edit_album_path(@album) %>
+        <%= link_to "Delete", album_path(@album), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
+   <% end %>
+   <%= link_to "Back", root_path %>
+  </div>
+</div>
 
-<% if user_signed_in? %>
-  <% if @album.user_id == current_user.id %>
-    <%= link_to "Edit", edit_album_path(@album) %>
-    <%= link_to "Delete", album_path(@album), method: :delete, data: { confirm: "Are you sure?" } %>
-  <% end %>
-<% end %>
 
-<div>
+<div class="mt-5 mb-5">
   <h1>Reviews</h1>
   <%= link_to "Add Review", new_album_review_path(@album) %>
 
