@@ -1,4 +1,4 @@
-<div class="flex justify-center items-center bg-red-400 mt-2 mb-2">
+<div class="flex justify-center items-center  mt-2 mb-2">
   <%= form_for @album, :html => { :multipart => true } do |f| %>
     <div class="flex justify-center">
       <% if @album.album_cover.attached? %>
@@ -20,7 +20,7 @@
         <%= f.label :title %>
       </div>
       <div>
-        <%= f.text_field :title , :size => "70", class: "p-1 mt-1" %>
+        <%= f.text_field :title , :size => "70", class: "p-1 mt-1 border-2 border-black" %>
       </div>
     </div>
 
@@ -29,7 +29,7 @@
         <%= f.label :artist %>
       </div>
       <div>
-        <%= f.text_field :artist , :size => "70", class: "p-1 mt-1" %>
+        <%= f.text_field :artist , :size => "70", class: "p-1 mt-1 border-2 border-black" %>
       </div>
     </div>
 
@@ -38,13 +38,13 @@
         <%= f.label :description %>
       </div>
       <div>
-        <%= f.text_area :description, :size => "70", class: "p-1 mt-1" %>
+        <%= f.text_area :description, :size => "70", class: "p-1 mt-1 border-2 border-black" %>
       </div>
       <div class="mt-4">
         <%= f.select :genre_id, @genres %>
       </div>
     </div>
 
-    <%= f.submit class: " bg-red-700 hover:bg-red-500 text-yellow-100 font-bold py-2 px-4 border border-red-700 rounded" %>
+    <%= f.submit class: " bg-black hover:bg-gray-700 cursor-pointer text-white font-bold py-2 px-4 rounded" %>
   <% end %>
 </div>
