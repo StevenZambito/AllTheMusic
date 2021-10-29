@@ -4,11 +4,11 @@ class ReviewsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
 
   def new
-    if current_user.reviews.exists?
-      redirect_to album_path(@album), notice: "You've already written a review for this book!"
-    else
+    # if current_user.reviews.exists?
+    #   redirect_to album_path(@album), notice: "You've already written a review for this book!"
+    # else
       @review = Review.new
-    end
+    # end
   end
 
   def create
