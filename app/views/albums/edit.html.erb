@@ -1,50 +1,64 @@
-<div class="flex justify-center items-center  mt-2 mb-2">
-  <%= form_for @album, :html => { :multipart => true } do |f| %>
-    <div class="flex justify-center">
-      <% if @album.album_cover.attached? %>
-        <%= image_tag @album.album_cover, class:"w-52" %>
-      <% end %>
-    </div>
+<h1 class="text-center font-bold mt-10 mb-10 text-xl">Edit Album</h1>
 
-    <div class="mb-4">
-      <div>
-        <%= f.label :album_cover %>
-      </div>
-      <div>
-        <%= f.file_field :album_cover, class: "mt-1" %>
-      </div>
-    </div>
+<div class="flex justify-center mt-2 mb-2">
 
-    <div class="mb-4">
-      <div>
-        <%= f.label :title %>
-      </div>
-      <div>
-        <%= f.text_field :title , :size => "70", class: "p-1 mt-1 border-2 border-black" %>
-      </div>
-    </div>
+  <div class="bg-white border border-black rounded p-5">
 
-    <div class="mb-4">
-      <div>
-        <%= f.label :artist %>
-      </div>
-      <div>
-        <%= f.text_field :artist , :size => "70", class: "p-1 mt-1 border-2 border-black" %>
-      </div>
-    </div>
+    <%= form_for @album, :html => { :multipart => true } do |f| %>
 
-    <div class="mb-4">
-      <div>
-        <%= f.label :description %>
+      <div class="flex justify-center">
+        <% if @album.album_cover.attached? %>
+          <%= image_tag @album.album_cover, class:"w-52" %>
+        <% end %>
       </div>
-      <div>
-        <%= f.text_area :description, :size => "70", class: "p-1 mt-1 border-2 border-black" %>
-      </div>
-      <div class="mt-4">
-        <%= f.select :genre_id, @genres %>
-      </div>
-    </div>
 
-    <%= f.submit class: " bg-black hover:bg-white hover:text-black border border-black cursor-pointer text-white font-bold py-2 px-4 rounded" %>
-  <% end %>
+      <div class="mb-4">
+        <div>
+          <%= f.label :album_cover %>
+        </div>
+
+        <div>
+          <%= f.file_field :album_cover, class: "mt-1" %>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <div>
+          <%= f.label :title %>
+        </div>
+
+        <div>
+          <%= f.text_field :title , :size => "70", class: "p-1 mt-1 border-2 border-black rounded" %>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <div>
+          <%= f.label :artist %>
+        </div>
+
+        <div>
+          <%= f.text_field :artist , :size => "70", class: "p-1 mt-1 border-2 border-black rounded" %>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <div>
+          <%= f.label :description %>
+        </div>
+
+        <div>
+          <%= f.text_area :description, :size => "70", class: "p-1 mt-1 border-2 border-black rounded" %>
+        </div>
+
+        <div class="mt-4">
+          <%= f.select :genre_id, @genres %>
+        </div>
+      </div>
+
+      <%= f.submit class: " bg-black hover:bg-white hover:text-black border border-black cursor-pointer text-white font-bold py-2 px-4 rounded" %>
+    <% end %>
+
+  </div>
+  
 </div>

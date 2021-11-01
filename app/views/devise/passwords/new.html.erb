@@ -1,22 +1,30 @@
-<h2 class="text-center font-bold mt-10 mb-10">Forgot your password?</h2>
-<div class="flex justify-center items-center mt-2 mb-2">
-  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+<h2 class="text-center font-bold mt-10 mb-10 text-xl">Forgot your password?</h2>
 
-    <%= render "devise/shared/error_messages", resource: resource %>
+<div class="flex justify-center mt-2 mb-2">
 
-    <div class="field mb-4">
-      <div>
-        <%= f.label :email %>
+  <div class="bg-white border border-black rounded p-5">
+  
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field mb-4">
+        <div>
+          <%= f.label :email %>
+        </div>
+
+        <div>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "p-1 mt-1 border-2 border-black rounded", :size => "50" %>
+        </div>
       </div>
-      <div>
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "p-1 mt-1 border-2 border-black", :size => "50" %>
-      </div>
-    </div>
 
-    <div class="actions mb-4">
-      <%= f.submit "Send Reset Link", class: "bg-black hover:bg-white hover:text-black border border-black cursor-pointer text-white font-bold py-2 px-4 rounded" %>
-    </div>
-  <% end %>
+      <div class="actions mb-4">
+        <%= f.submit "Send Reset Link", class: "bg-black hover:bg-white hover:text-black border border-black cursor-pointer text-white font-bold py-2 px-4 rounded" %>
+      </div>
+    <% end %>
+
+  </div>
+
 </div>
 
 <%# <div class="flex flex-col items-center"> %>
