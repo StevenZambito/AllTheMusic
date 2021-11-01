@@ -1,33 +1,41 @@
 <nav class="navbar bg-black flex justify-between px-10 pt-5 pb-5">
+
   <div class="flex">
+
     <div class="font-bold text-white text-xl">
-      <%= link_to "All The Music", root_path%>
+      <%= link_to "All The Music", root_path, class: "font-testing text-2xl"%>
     </div>
 
-    <ul class="flex text-white">
-      <li class="px-10"><%= link_to "Sign Up", new_user_registration_path%></li>
+    <ul class="flex text-white justify-center items-center">
+      <li class="px-10">
+        <%= link_to "Sign Up", new_user_registration_path%>
+      </li>
       <% if user_signed_in? %>
-        <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+        <li>
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+        </li>
       <% else %>
-        <li><%= link_to "Sign In", new_user_session_path %></li>
+        <li>
+          <%= link_to "Sign In", new_user_session_path %>
+        </li>
       <% end %>
     </ul>
   </div>
 
 
 
-        <div class="flex flex-wrap">
-          <% Genre.all.each do |genre| %>
-            <div class="pl-3 pr-3 text-white hover:text-red-500 <%= 'font-bold text-red-500' if params[:genre] == genre.name %>">
-              <%= link_to genre.name, albums_path(genre: genre.name)%>
-            </div>
-          <% end %>
-        </div>
+  <div class="flex flex-wrap items-center">
+    <% Genre.all.each do |genre| %>
+      <div class="pl-3 pr-3 text-white hover:text-red-500 <%= 'font-bold text-red-500' if params[:genre] == genre.name %>">
+        <%= link_to genre.name, albums_path(genre: genre.name)%>
+      </div>
+    <% end %>
+  </div>
 
-        <% if user_signed_in? %>
-          <div class="text-white"><%= link_to "Add Album", new_album_path %></div>
-        <% end %>
-
-
+  <div class="flex items-center">  
+    <% if user_signed_in? %>
+      <div class="text-white"><%= link_to "Add Album", new_album_path %></div>
+    <% end %>
+  </div>
 </nav>
 

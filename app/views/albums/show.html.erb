@@ -1,20 +1,31 @@
-<div class="flex justify-center bg-red-100 mt-10">
-  <div>
-    <% if @album.album_cover.attached? %>
-      <%= image_tag @album.album_cover, class: "w-96" %>
-    <% end %>
-  </div>
-  
-  <div class="flex flex-col bg-green-300 justify-center items-center pl-10 pr-10">
-      <h2 class="font-bold text-5xl"><%= @album.title %></h2>
-      <h2 class="text-center text-xl"><%= @album.artist %></h2>
-      <div class="average-review-rating flex mt-5" data-score="<%=@average_review %>"></div>
-      <span class="text-center italic text-sm">Based on <%=@album.reviews.count %> reviews</span>
-      <h2><%= @album.genre.name %></h2>
+<div class="flex justify-center mt-10 mb-5">
+  <div class="flex bg-black border border-black rounded pt-5 pb-5 pl-20">
+    <div>
+      <% if @album.album_cover.attached? %>
+        <%= image_tag @album.album_cover, class: "w-96 rounded" %>
+      <% end %>
+    </div>
+    
+    <div class="flex flex-col bg-black justify-center items-center pl-32 pr-32">
+        <h2 class="font-bold text-white text-5xl font-testing italic"><%= @album.title %></h2>
+        <h2 class="text-center text-white text-2xl"><%= @album.artist %></h2>
+        <div class="average-review-rating justify-center flex mt-5" data-score="<%=@average_review %>"></div>
+        <span class="text-center text-white italic text-sm">Based on <%=@album.reviews.count %> reviews</span>
+    </div>
   </div>
 </div>
+<div class="flex justify-center">
+  <div class="flex italic text-gray-500">
+    <p class="pl-2 pr-2"><%= @album.genre.name %></p>
+    <p>•</p>
+    <p class="pl-2 pr-2">Interscope</p>
+    <p>•</p>
+    <p class="pl-2 pr-2">August 23, 2011</p>  
+  </div>
 
-<div class="ml-32 mr-32">
+</div>
+
+<div>
   <p class="mt-5 mb-5"><%= @album.description %></p>
 </div>
 

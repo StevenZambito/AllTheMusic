@@ -239,6 +239,10 @@ module.exports = {
       DEFAULT: '1',
     },
     fontFamily: {
+      testing: [
+        'Cantarell'
+      ],
+
       sans: [
         'ui-sans-serif',
         'system-ui',
@@ -254,6 +258,8 @@ module.exports = {
         '"Segoe UI Emoji"',
         '"Segoe UI Symbol"',
         '"Noto Color Emoji"',
+        'BR Firma', 
+        'sans-serif'
       ],
       serif: ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
       mono: [
