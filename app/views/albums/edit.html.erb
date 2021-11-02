@@ -44,6 +44,26 @@
 
       <div class="mb-4">
         <div>
+          <%= f.label :label %>
+        </div>
+
+        <div>
+          <%= f.text_field :label , :size => "70", class: "p-1 mt-1 border-2 border-black rounded" %>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <div>
+          <%= f.label :release_date %>
+        </div>
+
+        <div>
+          <%= f.date_field :release_date , :size => "70", class: "p-1 mt-1 border-2 border-black rounded" %>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <div>
           <%= f.label :description %>
         </div>
 
