@@ -1,15 +1,71 @@
-<div class="review-rating flex" data-score="<%= review.rating %>">
-</div>
-<p><%= review.title %></p>
-<p><%= review.comment %></p>
-<p><%= review.created_at.strftime("%b %-d") %></p>
+ <%
+=begin %> 
+  <div class="mb-7 mt-7 bg-white border border-black rounded p-4 m-3 w-96">
+    <p class="font-bold text-xl"><%= review.title %></p>
+    <div class="review-rating flex text-xs" data-score="<%= review.rating %>">
+    </div>
+    <p class="mt-2 mb-2"><%= review.comment %></p>
+    <div class="flex justify-between">
+      <div>
+        <p><%= review.created_at.strftime("%b %-d") %></p>
+      </div>
+
+      <div>
+        <% if user_signed_in? %>
+        <% if review.user_id == current_user.id %>
+          <%= link_to "Edit", edit_album_review_path(review.album, review), class: "text-sm border border-black rounded p-1 mr-1" %>
+          <%= link_to "Delete", album_review_path(review.album, review), method: :delete, data: {
+          confirm: "Are you sure?" }, class: "text-sm border border-black rounded p-1" %>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+  </div>
+<%
+=end %>
+
+  <div class="flex flex-col justify-between mb-7 mt-7 bg-white border border-black rounded p-4 m-3 w-96">
+    <div>
+    <p class="font-bold text-xl mb-2"><%= review.title %></p>
+    <div class="review-rating flex text-sm w-4 h-4" data-score="<%= review.rating %>">
+    </div>
+    <div>
+      <% if review.comment.length > 250 %>
+        <p class="mt-2 mb-2"><%= truncate(review.comment, length: 138) %><%= link_to ' More', '', class: "text-blue-800 read-more-#{review.id}" %></p>
+      <% else %>
+        <p class="mt-2 mb-2"><%= review.comment %></p>
+     <% end %>
+    </div>
+    </div>
+    
+    <div class="flex justify-between mt-2">
+      <div>
+        <p><%= review.created_at.strftime("%b %-d") %></p>
+      </div>
+
+      <div>
+        <% if user_signed_in? %>
+        <% if review.user_id == current_user.id %>
+          <%= link_to "Edit", edit_album_review_path(review.album, review), class: "text-sm border border-black rounded p-0.5 mr-1" %>
+          <%= link_to "Delete", album_review_path(review.album, review), method: :delete, data: {
+          confirm: "Are you sure?" }, class: "text-sm border border-black rounded p-0.5" %>
+        <% end %>
+      <% end %>
+      </div>
+    </div>
+  </div>
 
 
+    
+    <script>
+      $('.read-more-<%= review.id %>').on('click', function(e) {
+        e.preventDefault()
+        $(this).parent().html('<%= escape_javascript review.comment %><%= link_to ' Less', '', class: "text-blue-800 less-more-#{review.id}" %>')
+      })
+    </script>
 
-<% if user_signed_in? %>
-  <% if review.user_id == current_user.id %>
-    <%= link_to "Edit", edit_album_review_path(review.album, review) %>
-    <%= link_to "Delete", album_review_path(review.album, review), method: :delete, data: {
-      confirm: "Are you sure?" } %>
-  <% end %>
-<% end %>
+    <script>
+      $('.less-more-<%= review.id %>').on('click', function(e) {
+        return
+      })
+    </script>
