@@ -20,7 +20,7 @@
     <p>•</p>
     <p class="pl-2 pr-2"><%= @album.label %></p>
     <p>•</p>
-    <p class="pl-2 pr-2"><%= @album.release_date %></p>  
+    <p class="pl-2 pr-2"><%= @album.release_date.strftime("%m/%d/%Y") %></p>  
   </div>
 
 </div>
