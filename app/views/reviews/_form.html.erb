@@ -12,11 +12,21 @@
 
       <div class="mb-4">
         <div>
+          <%= f.label :title %>
+        </div>
+
+        <div>
+          <%= f.text_field :title, :size => "70", class: "rounded p-1 mt-1 border-2 border-black" %>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <div>
           <%= f.label :comment %>
         </div>
 
         <div>
-          <%= f.text_field :comment, :size => "70", class: "rounded p-1 mt-1 border-2 border-black" %>
+          <%= f.text_area :comment, :size => "70", class: "rounded p-1 mt-1 border-2 border-black" %>
         </div>
       </div>
 
