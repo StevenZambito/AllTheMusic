@@ -1,6 +1,9 @@
 <div class="review-rating flex" data-score="<%= review.rating %>">
 </div>
+<p><%= review.title %></p>
 <p><%= review.comment %></p>
+<p><%= review.created_at.strftime("%b %d %Y") %></p>
+
 
 
 <% if user_signed_in? %>
