@@ -28,7 +28,7 @@
         </div>
 
         <div>
-          <%= f.text_field :title , :size => "70", class: "p-1 mt-1 border-2 border-black rounded" %>
+          <%= f.text_field :title , :size => "70", class: "p-1 mt-1 border-2 border-black rounded", :required => true %>
         </div>
       </div>
 
@@ -38,7 +38,7 @@
         </div>
 
         <div>
-          <%= f.text_field :artist , :size => "70", class: "p-1 mt-1 border-2 border-black rounded" %>
+          <%= f.text_field :artist , :size => "70", class: "p-1 mt-1 border-2 border-black rounded", :required => true %>
         </div>
       </div>
 
@@ -48,7 +48,7 @@
         </div>
 
         <div>
-          <%= f.text_field :label , :size => "70", class: "p-1 mt-1 border-2 border-black rounded" %>
+          <%= f.text_field :label , :size => "70", class: "p-1 mt-1 border-2 border-black rounded", :required => true %>
         </div>
       </div>
 
@@ -58,7 +58,7 @@
         </div>
 
         <div>
-          <%= f.date_field :release_date , :size => "70", class: "p-1 mt-1 border-2 border-black rounded" %>
+          <%= f.date_field :release_date , :size => "70", class: "p-1 mt-1 border-2 border-black rounded", :required => true %>
         </div>
       </div>
 
@@ -68,11 +68,11 @@
         </div>
 
         <div>
-          <%= f.text_area :description, :size => "70", class: "p-1 mt-1 border-2 border-black rounded" %>
+          <%= f.text_area :description, :size => "70", class: "p-1 mt-1 border-2 border-black rounded", :required => true %>
         </div>
 
         <div class="mt-4">
-          <%= f.select :genre_id, @genres %>
+          <%= f.select :genre_id, @genres, :required => true %>
         </div>
       </div>
 

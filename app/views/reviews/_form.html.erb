@@ -6,7 +6,7 @@
 
       <div id="rating-form" class="mb-4 flex">
         <div class="mr-2">
-          <%= f.label :rating %>
+          <%= f.label :rating, :required => true %>
         </div>
       </div>
 
@@ -16,7 +16,7 @@
         </div>
 
         <div>
-          <%= f.text_field :title, :size => "70", class: "rounded p-1 mt-1 border-2 border-black" %>
+          <%= f.text_field :title, :size => "70", class: "rounded p-1 mt-1 border-2 border-black", :required => true %>
         </div>
       </div>
 
@@ -26,7 +26,7 @@
         </div>
 
         <div>
-          <%= f.text_area :comment, :size => "70", class: "rounded p-1 mt-1 border-2 border-black" %>
+          <%= f.text_area :comment, :size => "70", class: "rounded p-1 mt-1 border-2 border-black", :required => true %>
         </div>
       </div>
 
