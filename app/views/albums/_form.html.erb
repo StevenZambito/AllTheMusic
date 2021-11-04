@@ -85,7 +85,7 @@
           <%= f.label :description %>
         </div>
         <div>
-          <%= f.text_area :description, :size => "70", class: "p-1 mt-1 border-2 border-black rounded", :required => true %>
+          <%= f.text_area :description, minlength: 100, :size => "70", class: "p-1 mt-1 border-2 border-black rounded", :required => true %>
         </div>
         <div class="mt-4">
           <%= select_tag(:genre_id, options_for_select(@genres), :prompt => "Select a Genre", :required => true)%>
