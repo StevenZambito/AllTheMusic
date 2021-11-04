@@ -4,7 +4,7 @@ class AlbumsController < ApplicationController
 
     def index
       if params[:genre].blank?
-        @albums = Album.all.order("created_at DESC")
+        @albums = Album.search(params[:search])
       else
         @genre_id = Genre.find_by(name: params[:genre]).id
         @albums = Album.where(:genre_id => @genre_id).order("created_at DESC")
