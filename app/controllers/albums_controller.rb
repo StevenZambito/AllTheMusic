@@ -28,12 +28,16 @@ class AlbumsController < ApplicationController
     def create
       @album = current_user.albums.build(album_params)
       @album.genre_id = params[:genre_id]
-
-      if @album.save
-        redirect_to root_path
-      else 
-        render 'new'
-      end
+      
+      # if Album.where(:title => @album.title)
+        # puts "hi"
+      # else
+        if @album.save
+          redirect_to root_path
+        else 
+          render 'new'
+        end
+      # end
     end
 
     def edit
