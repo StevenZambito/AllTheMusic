@@ -4,7 +4,7 @@ class AlbumsController < ApplicationController
 
     def index
       if params[:genre].blank?
-        @albums = Album.all.order("created_at DESC")
+        @albums = Album.search(params[:search])
       else
         @genre_id = Genre.find_by(name: params[:genre]).id
         @albums = Album.where(:genre_id => @genre_id).order("created_at DESC")
@@ -28,11 +28,15 @@ class AlbumsController < ApplicationController
     def create
       @album = current_user.albums.build(album_params)
       @album.genre_id = params[:genre_id]
-
-      if @album.save
-        redirect_to root_path
-      else 
-        render 'new'
+      
+      if Album.any? { |album| album.title == @album.title && album.artist == @album.artist }
+        redirect_to new_album_path, alert: "Album already exists"
+      else
+        if @album.save
+          redirect_to root_path
+        else 
+          render 'new'
+        end
       end
     end
 
