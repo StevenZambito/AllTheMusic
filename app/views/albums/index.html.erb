@@ -1,9 +1,9 @@
 <% if @albums.count == 0 %>
   <h1 class="text-center mt-5">There are currently no albums in this Genre</h1>
 <% else%>
-  <h1 class="text-center mt-5"><%= params[:genre] %></h1>
+  <%# <h1 class="text-center mt-5"><%= params[:genre] %></h1>
 
-  <div class="flex flex-wrap justify-center border-2 border-green-400 mt-10 mb-10">
+  <div class="flex flex-wrap justify-center mt-10 mb-10">
     <% @albums.each do |album| %>
       <div class="m-5">
         <div>
@@ -17,6 +17,9 @@
           </div>
           <div class="flex justify-center text-center">
             <%= album.artist %>
+          </div>
+          <div class="flex justify-center text-center text-sm mt-1">
+            <%= album.genre.name %>
           </div>
         </div>
       </div>
