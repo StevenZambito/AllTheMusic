@@ -29,15 +29,15 @@ class AlbumsController < ApplicationController
       @album = current_user.albums.build(album_params)
       @album.genre_id = params[:genre_id]
       
-      # if Album.where(:title => @album.title)
-        # puts "hi"
-      # else
+      if Album.any? { |album| album.title == @album.title && album.artist == @album.artist }
+        redirect_to new_album_path, alert: "Album already exists"
+      else
         if @album.save
           redirect_to root_path
         else 
           render 'new'
         end
-      # end
+      end
     end
 
     def edit
