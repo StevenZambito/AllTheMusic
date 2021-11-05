@@ -16,10 +16,14 @@ class ReviewsController < ApplicationController
     @review.album_id = @album.id
     @review.user_id = current_user.id
 
-    if @review.save
-      redirect_to album_path(@album)
+    if @review.rating == nil
+      redirect_to new_album_review_path, alert: "Need to give review a rating!"
     else
-      render 'new'
+      if @review.save
+        redirect_to album_path(@album)
+      else
+        render 'new'
+      end
     end
   end
 
