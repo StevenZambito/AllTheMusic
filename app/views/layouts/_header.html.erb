@@ -24,18 +24,25 @@
 
 
 
-  <div class="flex flex-wrap items-center">
-    <% Genre.all.each do |genre| %>
-      <div class="pl-3 pr-3 text-white hover:text-red-500 <%= 'font-bold text-red-500' if params[:genre] == genre.name %>">
-        <%= link_to genre.name, albums_path(genre: genre.name)%>
-      </div>
-    <% end %>
+  <div class="flex items-center z-10">
+    <div class="dropdown inline-block relative mr-4">
+      <button class="bg-gray-300 text-gray-700 font-semibold py-1 px-3 rounded inline-flex items-center">
+        <span class="mr-1">Genres</span>
+        <svg class="fill-current h-4 w-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> </svg>
+      </button>
+      <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+        <% Genre.all.each do |genre| %>
+          <li class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap" <%= 'font-bold text-red-500' if params[:genre] == genre.name %>">
+            <%= link_to genre.name, albums_path(genre: genre.name)%>
+          </li>
+        <% end %>
+      </ul>
   </div>
-
-  <div class="flex items-center">  
-    <% if user_signed_in? %>
-      <div class="text-white"><%= link_to "Add Album", new_album_path %></div>
-    <% end %>
+    <div>  
+      <% if user_signed_in? %>
+        <div class="text-white"><%= link_to "Add Album", new_album_path %></div>
+      <% end %>
+    </div>
   </div>
 </nav>
 
